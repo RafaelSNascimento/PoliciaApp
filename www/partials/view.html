@@ -1,0 +1,41 @@
+<div class="container text-left" >
+	<label>Batalhão: <select class="form-control" ng-options="item as item.nome for item in batalhao track by item.id" ng-model="filt" >
+	</select></label> <br>
+	<label>Nome <input class="form-control"  ng-model="search.nome"></label><br>
+	<label>Partido <input class="form-control" ng-model="search.partido"></label><br>
+	<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<td>
+					#
+				</td>
+				<td>
+					Nome 
+				</td>
+				<td>
+					Batalhão
+				</td>
+				<td>
+					Partido 
+				</td>
+				<td colspan = '2' class="text-center">
+					Funções
+				</td>
+			</tr>
+		</thead>
+	    
+	    <tbody>
+	      <tr ng-repeat="roll in autoridadesConvidados | filter:{idUnidade :filt.id, nome: search.nome, partido: search.partido} | limitTo: 10" ng-class="roll.presenca ? 'info' : 'warning'">
+	      <td>{{$index}}</td>
+	        <td>{{ roll.nome }}</td>
+	        <td>{{ roll.cidade }}</td>
+	        <td>{{ roll.partido }}</td>
+	        <td><button class="btn btn-default" ng-click="scanner(roll.id, roll.nome, true)">Confirmar/Notificar</button></td>
+	        <td><button class="btn btn-default" ng-click="scanner(roll.id, roll.nome, false)">Confirmar</button></td>
+	      </tr>
+	    </tbody>   
+	</table>
+	</div>
+</div>
+

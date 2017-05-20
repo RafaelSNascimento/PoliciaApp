@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html ng-controller="mainController">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+ 
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/sweetalert2.min.css">
+    <script type="text/javascript" src="lib/js/sweetalert2.min.js"></script>
+
+    <script type="text/javascript" src="lib/js/angular-1.2.0-rc3.js"></script>
+    <script type="text/javascript" src="lib/js/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="lib/js/ngSweetAlert2.min.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.3.0/angularfire.min.js"></script>
+    <script type="text/javascript" src="lib/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="lib/js/bootstrap.js"></script>
+    <script type="text/javascript" src="lib/js/scrollglue.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">
+        var config = {
+            apiKey: "AIzaSyACV5gEDVb-hi9HXRe3qjSHzsIubG_wJls",
+            authDomain: "chatapp-fc9cb.firebaseapp.com",
+            databaseURL: "https://chatapp-fc9cb.firebaseio.com",
+            storageBucket: "chatapp-fc9cb.appspot.com",
+            messagingSenderId: "487121043257"
+            };
+        firebase.initializeApp(config);
+        document.addEventListener("deviceready", function() {
+            var element = document.querySelector('html');
+            angular.bootstrap(element, ["App"]); //Or simple document in place of element
+        }, false);
+    </script>
+   <title>Policia Militar</title>
+</head>
+<body ng-cloak>
+    
+<!--     <div ng-show="loading" id="myModal" class="alerts text-center">
+        <div class="modal-content">
+            <img  ng-src="img/logo.gif"/>
+            <h3>Carregando</h3>
+        </div>
+    </div>
+    -->
+    
+    <div ui-view class="text-center" >
+        <a class="btn btn-default" style="left: 0;position: absolute;" ui-sref="configuracao"> <span class="glyphicon glyphicon-cog"></span></a>
+        <h1>Policia Militar</h1>
+        
+        <br/>
+        <div class="container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>
+                            Banco de Dados
+                        </td>
+                        <td>
+                            Status
+                        </td>
+                        <td>
+                            Abastecer
+                        </td>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <tr>
+                        <td>Eventos</td>
+                        <td><div style="margin: auto;" class="circle" ng-class="!eventos[0] ? 'empty' : 'full'"></div></td>
+                        <td>
+                            <button class="btn btn-default" ng-click="abastecerEventos()">Abastecer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Batalhão</td>
+                        <td><div style="margin: auto;"  class="circle" ng-class="!batalhao[0] ? 'empty' : 'full'"></div></td>
+                        <td>
+                            <button class="btn btn-default" ng-click="abastecerBatalhao()">Abastecer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Autoridades</td>
+                        <td><div style="margin: auto;"  class="circle" ng-class="!autoridades ? 'empty' : 'full'"></div></td>
+                        <td>
+                            <button class="btn btn-default" ng-click="abastecerAutoridades()">Abastecer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Convidados</td>
+                        <td><div style="margin: auto;"  class="circle" ng-class="!convidados ? 'empty' : 'full'"></div></td>
+                        <td>
+                            <button class="btn btn-default" ng-click="abastecerConvidados()">Abastecer</button>
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <button class="btn btn-danger" ng-click="removeAll()">Apagar Banco de Dados</button>
+        </div>
+        <div class="container text-left">
+            <label>Batalhão: <select class="form-control" ng-options="item as item.nome for item in batalhao track by item.id" ng-model="filt" >
+            </select></label> <br>
+            <label>Nome <input class="form-control"  ng-model="search.nome"></label><br>
+            <label>Data <input class="form-control" ng-model="search.data"></label><br>
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>
+                                Nome
+                            </td>
+                            <td>
+                                data
+                            </td>
+                            <td>
+                                Hora
+                            </td>
+                            <td>
+                                Cidade 
+                            </td>
+                        </tr>
+                    </thead>   
+                    <tbody>
+                        <tr ng-repeat="roll in eventos  | filter:{idUnidade :filt.id, nome: search.nome, data: search.data}" ng-click="go(roll.id)" >
+                            <td>{{ roll.nome }}</td>
+                            <td>{{ roll.data }}</td>
+                            <td>{{ roll.hora}}</td>
+                            <td>{{ roll.cidade }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+</body>
+</html>

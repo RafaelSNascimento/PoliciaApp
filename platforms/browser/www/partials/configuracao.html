@@ -1,0 +1,12 @@
+
+<a ui-sref="index" class="btn btn-default" style="left: 0;position: absolute;"><span class="glyphicon glyphicon-arrow-left"></span></a>
+<h1>Configuração</h1>
+<div class="container-fluid">	
+	<label>Receber Notificações <input type="checkbox" style="zoom:2;vertical-align: middle;" ng-model="notificacao.flag" ng-change="notificacaoChange()"></label>
+	<br/>
+	<label>Ip do Servidor: <input class="form-control"  ng-model="ipServidor"></label>
+	<button class="btn btn-default" ng-click="setIpServidor(ipServidor)">Salvar Ip</button>
+	<!-- <br/> -->
+	<!-- <label>Nome: <input class="form-control"   ng-model="name"></label> -->
+	<!-- <button class="btn-default btn" ng-click="username(name)">Salvar Nome</button> -->
+</div>

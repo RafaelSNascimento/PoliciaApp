@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "487121043257",
+    "firebase_url": "https://chatapp-fc9cb.firebaseio.com",
+    "project_id": "chatapp-fc9cb",
+    "storage_bucket": "chatapp-fc9cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487121043257:android:b6485b4f0bd20ae4",
+        "android_client_info": {
+          "package_name": "br.com.policiaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487121043257-20828e8cbd95adp35ncebskn6rivper4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYBCXzqGKLFIIqq4z4JBlBewnWPzprK9Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

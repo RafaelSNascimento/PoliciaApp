@@ -1,0 +1,32 @@
+<div class="menu">
+<ul class="nav nav-tabs">
+		<li><a href="#/"><span class="glyphicon glyphicon-circle-arrow-left"/></a></li><li ng-click="setHomeMenuLi()" ng-class="dashboard.menuActive == 'Home' ? 'active' : ''"><a ui-sref="eventos"><span class="glyphicon glyphicon-home"/></a></li><li ng-class="dashboard.menuActive == 'Autoridades' ? 'active' : ''"><a ui-sref=".autoridadesConvidadas"><span class="glyphicon glyphicon-list-alt"/></a></li><li ng-class="dashboard.menuActive == 'QRCode' ? 'active' : ''"><a ui-sref=".qrcode"><span class="glyphicon glyphicon-qrcode"/></a></li>
+</ul>
+</div>
+<div ui-view>
+	<div class="container" >
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<td class="info">Informações</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td><p>Nome:</p> {{eventoSelected.nome}}</td></tr>	
+				<tr><td><p>Data:</p> {{eventoSelected.data}}</td></tr>
+				<tr><td><p>Hora:</p> {{eventoSelected.hora}}</td></tr>
+				<tr><td><p>Cep:</p> {{eventoSelected.cep}}</td></tr>
+				<tr><td><p>UF:</p> {{eventoSelected.uf}}</td></tr>
+				<tr><td><p>Cidade:</p> {{eventoSelected.cidade}}</td></tr>
+				<tr><td><p>Bairro:</p> {{eventoSelected.bairro}}</td></tr>
+				<tr><td><p>Logradouro:</p> {{eventoSelected.logradouro}}</td></tr>
+				<tr><td><p>Numero:</p> {{eventoSelected.numero}}</td></tr>
+				<tr><td><p>Traje Civil:</p>{{eventoSelected.traje_civilvet}}</td></tr>
+				<tr><td><p>Traje FFA:</p> {{eventoSelected.traje_ffaa}}</td></tr>
+				<tr><td><p>Traje PM:</p> {{eventoSelected.traje_pm}}</td></tr>
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+</div>

@@ -1,0 +1,31 @@
+
+<button ng-click="scanner()" class="btn btn-default">Scanear Convite</button>
+
+
+<div class="container text-left" >
+	<label>Batalhão: <select class="form-control" ng-options="item as item.nome for item in batalhao track by item.id" ng-model="filt" >
+	</select></label> <br>
+	<label>Nome <input class="form-control"  ng-model="search.nome"></label><br>
+	<label>Partido <input class="form-control" ng-model="search.partido"></label><br>
+
+
+	<table class="table table-bordered table-striped " style="table-layout:fixed;">
+		<thead>
+			<tr>
+				<td>
+					Nome 
+				</td>
+				<td>
+					Partido 
+				</td>
+			</tr>
+		</thead>
+	    <tbody>
+	      <tr ng-repeat="roll in convidadosConfirmados | filter:{idUnidade :filt.id, nome: search.nome, partido: search.partido}" ng-click="convidadoSingle(roll.id, false)">
+	        <td>{{ roll.nome }}</td>
+	        <td>{{ roll.partido }}</td>
+	      </tr>
+	    </tbody>
+	</table>
+	
+</div>
